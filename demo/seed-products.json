@@ -1,0 +1,14 @@
+[
+  { "sku": "BAN-01", "name": "Ripe bananas, 1lb",          "description": "Hand-selected bananas, ready to eat.",       "price_cents": 199,  "currency": "USD" },
+  { "sku": "OAT-01", "name": "Steel-cut oats, 24oz",       "description": "Slow-cooking oats, locally milled.",         "price_cents": 549,  "currency": "USD" },
+  { "sku": "COF-01", "name": "Single-origin coffee, 12oz", "description": "Light roast, Ethiopian Yirgacheffe.",        "price_cents": 1499, "currency": "USD" },
+  { "sku": "PAS-01", "name": "Bronze-die pasta, 1lb",      "description": "Traditional rough-textured penne.",         "price_cents": 699,  "currency": "USD" },
+  { "sku": "OIL-01", "name": "Olive oil, 500ml",            "description": "First cold press, this season's harvest.", "price_cents": 1899, "currency": "USD" },
+  { "sku": "TEA-01", "name": "Loose-leaf tea, 4oz",         "description": "Ceylon black tea, traditional grade.",      "price_cents": 899,  "currency": "USD" },
+  { "sku": "BRD-01", "name": "Sourdough loaf",              "description": "Naturally leavened, baked this morning.",   "price_cents": 799,  "currency": "USD" },
+  { "sku": "JAM-01", "name": "Apricot preserves, 12oz",     "description": "Small batch, low sugar.",                    "price_cents": 1199, "currency": "USD" },
+  { "sku": "CHC-01", "name": "Dark chocolate bar, 70%",     "description": "Single-estate cacao, ethically sourced.",   "price_cents": 599,  "currency": "USD" },
+  { "sku": "WAL-01", "name": "Walnuts, 8oz",                "description": "California-grown, freshly cracked.",        "price_cents": 1099, "currency": "USD" },
+  { "sku": "HON-01", "name": "Wildflower honey, 12oz",      "description": "Raw, unfiltered, local apiary.",             "price_cents": 1399, "currency": "USD" },
+  { "sku": "YOG-01", "name": "Greek yogurt, 32oz",          "description": "Whole milk, traditionally strained.",       "price_cents": 749,  "currency": "USD" }
+]

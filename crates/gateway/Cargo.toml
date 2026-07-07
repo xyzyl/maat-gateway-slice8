@@ -1,0 +1,50 @@
+[package]
+name = "maat-gateway"
+version = "0.4.0"
+edition = "2021"
+description = "Maat Gateway - verification service (multi-tenant)"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "maat-gatewayd"
+path = "src/main.rs"
+
+[[bin]]
+name = "maat-gateway-bootstrap"
+path = "src/bin/bootstrap.rs"
+
+[dependencies]
+redis = { version = "0.27", features = ["tokio-comp", "aio"] }
+maat = { path = "../../../maat" }
+maat-config = { path = "../config" }
+parking_lot = "0.12"
+rand = "0.8"
+
+tokio = { workspace = true }
+axum = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+base64 = { workspace = true }
+
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+async-trait = { workspace = true }
+reqwest = { workspace = true }
+
+sqlx = { version = "0.8", default-features = false, features = [
+    "runtime-tokio-rustls",
+    "postgres",
+    "chrono",
+    "json",
+    "uuid",
+] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[dev-dependencies]
+tokio = { workspace = true }
+reqwest = { workspace = true }
+tempfile = { workspace = true }
+maat-kms = { path = "../kms" }

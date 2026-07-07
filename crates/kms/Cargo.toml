@@ -1,0 +1,47 @@
+[package]
+name = "maat-kms"
+version = "0.1.0"
+edition = "2021"
+description = "Maat Key Management Service - signing keys live here, and only here"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "maat_kms"
+path = "src/lib.rs"
+
+[[bin]]
+name = "maat-kmsd"
+path = "src/main.rs"
+
+[dependencies]
+# The Maat library — KMS uses Keypair for actual signing operations.
+maat = { path = "../../../maat" }
+
+tokio = { workspace = true }
+axum = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+base64 = { workspace = true }
+rand = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+# AES-GCM for vault encryption. This is an authenticated encryption scheme —
+# if the ciphertext is tampered with, decryption fails rather than returning
+# garbage. That property matters for key storage.
+aes-gcm = "0.10"
+
+# SHA-256 for deriving the KMS's key-ID namespace and for fingerprinting
+# public keys in logs.
+sha2 = "0.10"
+
+# Constant-time equality comparison for auth tokens. Defense against
+# timing oracles when checking bearer tokens.
+subtle = "2"
+
+[dev-dependencies]
+tokio = { workspace = true }
+tempfile = { workspace = true }
+reqwest = { workspace = true }

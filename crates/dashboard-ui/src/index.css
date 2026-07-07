@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100 antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+  }
+
+  /* Tighter monospace for IDs, hashes, public keys. */
+  code,
+  kbd,
+  pre,
+  samp,
+  .font-mono {
+    font-feature-settings: "zero", "ss01";
+  }
+
+  /* Stronger focus ring than the browser default but still calm. */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2 ring-offset-ink-950;
+  }
+}
+
+@layer components {
+  /* Surface card — used for almost every content panel. */
+  .card {
+    @apply bg-ink-900/80 border border-ink-800 rounded-lg shadow-soft;
+  }
+
+  /* Primary form input. */
+  .input {
+    @apply w-full bg-ink-950 border border-ink-700 rounded-md px-3 py-2
+           text-ink-100 placeholder-ink-500
+           focus:border-accent-500 focus:ring-1 focus:ring-accent-500
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-mono {
+    @apply input font-mono text-sm;
+  }
+
+  .label {
+    @apply block text-xs font-medium uppercase tracking-wider text-ink-400 mb-1.5;
+  }
+
+  /* Buttons. */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2
+           text-sm font-medium transition-colors
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-500 text-ink-950 hover:bg-accent-400
+           focus-visible:bg-accent-400;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-300 hover:text-ink-100 hover:bg-ink-800;
+  }
+
+  .btn-danger {
+    @apply btn bg-bad-500/10 text-bad-400 border border-bad-500/30
+           hover:bg-bad-500/20;
+  }
+
+  /* Status pill. */
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full
+           text-xs font-medium uppercase tracking-wider;
+  }
+
+  .pill-ok {
+    @apply pill bg-ok-500/10 text-ok-400;
+  }
+  .pill-warn {
+    @apply pill bg-warn-500/10 text-warn-400;
+  }
+  .pill-bad {
+    @apply pill bg-bad-500/10 text-bad-400;
+  }
+  .pill-muted {
+    @apply pill bg-ink-700/40 text-ink-400;
+  }
+
+  /* Section headings inside pages. */
+  .h-page {
+    @apply text-2xl font-semibold tracking-tight text-ink-50;
+  }
+  .h-section {
+    @apply text-sm font-semibold uppercase tracking-wider text-ink-400;
+  }
+}

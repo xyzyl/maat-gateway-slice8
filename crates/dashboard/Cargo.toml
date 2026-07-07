@@ -1,0 +1,55 @@
+[package]
+name = "maat-dashboard"
+version = "0.4.0"
+edition = "2021"
+description = "Maat Gateway - dashboard service (delegation creation, user management, receipt reads)"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "maat_dashboard"
+path = "src/lib.rs"
+
+[[bin]]
+name = "maat-dashboardd"
+path = "src/main.rs"
+
+[dependencies]
+maat = { path = "../../../maat" }
+maat-config = { path = "../config" }
+maat-gateway = { path = "../gateway" }
+tokio = { workspace = true }
+axum = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+base64 = { workspace = true }
+rand = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+async-trait = { workspace = true }
+reqwest = { workspace = true }
+
+# Cookie parsing for session middleware
+axum-extra = { version = "0.9", features = ["cookie"] }
+
+# CORS middleware for production deployments where the UI is served
+# from a different origin than the dashboard API.
+tower-http = { version = "0.6", features = ["cors"] }
+
+sqlx = { version = "0.8", default-features = false, features = [
+    "runtime-tokio-rustls",
+    "postgres",
+    "chrono",
+    "json",
+    "uuid",
+] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[dev-dependencies]
+tokio = { workspace = true }
+reqwest = { version = "0.12", features = ["json", "cookies"] }
+tempfile = { workspace = true }
+maat-kms = { path = "../kms" }
+maat-gateway = { path = "../gateway" }

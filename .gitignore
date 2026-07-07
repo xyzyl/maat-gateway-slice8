@@ -1,0 +1,13 @@
+target/
+
+# Runtime state — never commit key material or local service data.
+receipts/
+kms-vault
+kms-vault/
+kms-vault.json
+kms-vault.tmp
+gateway-executor-key.json
+*.db
+dump.rdb
+
+.DS_Store
